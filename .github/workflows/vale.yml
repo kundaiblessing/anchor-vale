@@ -16,4 +16,4 @@ jobs:
       - uses: errata-ai/vale-action@v2
         with:
           config: .vale.ini
-          styles-path: https://github.com/errata-ai/Google/releases/latest/download/Google.zip
+          styles-path: .vale
