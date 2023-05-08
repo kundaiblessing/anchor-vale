@@ -1,29 +1,19 @@
-# This is a basic workflow to help you get started with Actions
+name: Vale
 
-name: Vale-Linting
-
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [main]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  vale:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - name: Vale
-        uses: errata-ai/vale-action@v1.4.2
+      - uses: actions/checkout@v2
+      - uses: errata-ai/vale-action@v2
         with:
-          debug: true
-          styles: |
-            https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
-            https://github.com/errata-ai/Google/releases/latest/download/Google.zip
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        env:
+          config: .vale.ini
+          styles-path: https://github.com/errata-ai/Google/releases/latest/download/Google.zip
