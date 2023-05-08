@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Vale-Linting
+name: Editorial Review
 
 # Controls when the action will run.
 on:
@@ -12,16 +10,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  prose:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
 
       - name: Vale
-        uses: errata-ai/vale-action@v1.4.2
+        uses: errata-ai/vale-action@reviewdog
         with:
-          debug: true
-          styles: |
-            https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
-            https://github.com/errata-ai/Google/releases/latest/download/Google.zip
+          files: vale-tutorial/
+
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
