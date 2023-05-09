@@ -22,7 +22,6 @@ jobs:
         uses: errata-ai/vale-action@v1.4.2
         with:
           debug: true
-          styles: styles
 
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
