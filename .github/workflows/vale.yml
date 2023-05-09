@@ -19,7 +19,5 @@ jobs:
       - name: Vale
         uses: errata-ai/vale-action@reviewdog
         with:
-          config: .vale.ini
-
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          files: .vale.ini
+          token: ${{secrets.VALE_GITHUB_TOKEN}}
