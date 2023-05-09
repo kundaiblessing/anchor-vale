@@ -1,5 +1,13 @@
-name: Linting
-on: [push]
+name: Editorial Review
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [main]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   prose:
@@ -8,25 +16,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      # Optional
-      # Repeat the wget and unzip steps for each style you want to install
-      # Replace STYLES_PATH_REPLACE_ME with the StylesPath specified in your vale config.
-      - name: Styles
-        run: |
-          sudo apt install wget unzip
-          wget https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
-          unzip Microsoft.zip -d .github/styles
-          wget https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
-          unzip write-good.zip -d .github/styles
-
       - name: Vale
-        uses: makeworld-the-better-one/vale-action@v1.3.0
+        uses: errata-ai/vale-action@reviewdog
         with:
-          # Optional
-          config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
+          files: vale-tutorial/
 
-          # Optional
-          files: all
         env:
-          # Required
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
