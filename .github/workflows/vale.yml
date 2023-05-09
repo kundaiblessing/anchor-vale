@@ -19,7 +19,7 @@ jobs:
       - name: Vale
         uses: errata-ai/vale-action@reviewdog
         with:
-          files: vale-tutorial/
+          files: anchor-vale/
 
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
