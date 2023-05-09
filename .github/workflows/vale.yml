@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  prose:
+  vale:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,7 +19,6 @@ jobs:
       - name: Vale
         uses: errata-ai/vale-action@reviewdog
         with:
-          files: vale
           config: .vale.ini
 
         env:
