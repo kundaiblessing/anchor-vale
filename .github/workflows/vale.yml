@@ -20,6 +20,7 @@ jobs:
         uses: errata-ai/vale-action@reviewdog
         with:
           files: vale
+          config: .vale.ini
 
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
