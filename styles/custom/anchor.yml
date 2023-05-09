@@ -1,0 +1,11 @@
+---
+extends: substitution
+message: "Use '%s' instead of '%s'"
+level: error
+ignorance: false
+#swap maps tokens in the form of bad: good
+swap:
+  anchor: Anchor
+  unanchor: UnAnchor
+  Unanchor: UnAnchor
+  unAnchor: UnAnchor
