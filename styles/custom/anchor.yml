@@ -2,7 +2,7 @@
 extends: substitution
 message: "Use '%s' instead of '%s'"
 level: error
-ignorance: false
+ignorecase: false
 #swap maps tokens in the form of bad: good
 swap:
   anchor: Anchor
